@@ -1,1 +1,1 @@
-It is a simple crud Application for managing a task
+It is a simple crud Application for managing tasks
