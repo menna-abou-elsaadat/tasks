@@ -42,17 +42,17 @@ class TaskController extends Controller
         $validated = $request->validated();
         $task = TaskService::createTask($request->name,Auth::user()->id);
         alert()->success('Created', 'The task was created');
-        return Redirect::route('tasks.index')->with('status', 'task-created');
+        return Redirect::route('tasks.index');
 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    // public function show(string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -73,7 +73,7 @@ class TaskController extends Controller
         $task = Task::find($id);
         $updated_task = TaskService::updateTask($task,$request->name);
         alert()->success('Updated', 'The task was updated');
-        return Redirect::route('tasks.index')->with('status', 'task-updated');
+        return Redirect::route('tasks.index');
 
     }
 
@@ -85,6 +85,6 @@ class TaskController extends Controller
         $task = Task::find($id);
         TaskService::deleteTask($task);
         alert()->success('Deleted', 'The task was deleted');
-        return Redirect::route('tasks.index')->with('status', 'task-deleted');
+        return Redirect::route('tasks.index');
     }
 }
